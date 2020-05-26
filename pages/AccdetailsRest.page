@@ -1,0 +1,26 @@
+<apex:page controller="AccountRestclass" >
+ <apex:form >
+  <apex:pageblock title="Account data">
+      <apex:pageBlockButtons >
+      <apex:commandButton value="fetchdata" action="{!fetchdata}"/>
+      <apex:commandButton value="savedata" action="{!savedata}"/>
+       <apex:commandButton value="updatedata" action="{!updatedata}"/>
+      </apex:pageBlockButtons>
+      Enter name : <apex:inputText value="{!aname}"/> <br/>
+      
+      Enter rating: <apex:inputtext value="{!arating}"/> <br/>
+      
+      Enter Industry: <apex:inputText value="{!aindustry}"/> <br/> 
+      <hr/>
+      
+      Old rating: <apex:inputText value="{!oldrating}"/> <br/> <br/>
+      New rating:<apex:inputText value="{!newrating}"/>
+      
+     <apex:pageBlockTable value="{!accts}" var="a">
+      <apex:column value="{!a.name}" />
+      <apex:column value="{!a.rating}"/>
+       </apex:pageBlockTable>
+      
+      </apex:pageblock>
+     </apex:form>
+</apex:page>

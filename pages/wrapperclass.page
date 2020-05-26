@@ -1,0 +1,33 @@
+<apex:page controller="accountlist">
+<apex:form >
+
+<apex:pageBlock >
+<apex:pageBlockButtons >
+<apex:commandButton value="show selected accounts" action="{!showselected}"/>
+
+</apex:pageBlockButtons>
+
+<apex:pageBlockTable value="{!varlist}" var="v">
+<apex:column >
+<apex:facet name="header">
+checkbox
+</apex:facet>
+<apex:inputCheckbox value="{!v.selected}"/>
+</apex:column>
+
+<apex:column value="{!v.acc.name}"/>
+<apex:column value="{!v.acc.rating}"/>
+
+</apex:pageBlockTable>
+
+<hr/>
+<apex:pageBlockTable value="{!showaccountlist}" var="a">
+<apex:column value="{!a.name}"/>
+<apex:column value="{!a.rating}"/>
+</apex:pageBlockTable>
+
+
+</apex:pageBlock>
+</apex:form>
+  
+</apex:page>
