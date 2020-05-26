@@ -1,0 +1,15 @@
+<aura:component controller="savecontactdata">
+    <aura:attribute name="indexno" type="integer"/>
+    <aura:attribute name="contdetaillist" type="list"/>
+    <aura:attribute name="parentrecordid" type="string"/>
+  
+    <aura:attribute name="contactdetails" type="Contact" default="{'sobjectype':'Contact','LastName':'','Email':'',
+                                                                  'AccountId':''}"/>
+    
+    <lightning:input label="enter name" value="{!v.contactdetails.LastName}"/> <br/>
+    <lightning:input type="email" label="enter email" value="{!v.contactdetails.Email}"/> <br/>
+    <aura:handler name="change" value="{!v.parentrecordid}" action="{!c.savedetails}"/>
+    <lightning:button iconName="utility:delete" label="delete details" onclick="{!c.delete}"/><br/>
+    
+	
+</aura:component>

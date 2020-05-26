@@ -1,0 +1,32 @@
+<apex:page controller="Accountrecords">
+  <apex:form >
+  
+     <apex:outputText value="Enter rating" /> 
+    <apex:inputtext value="{!searchkey}"/>
+    <apex:commandButton action="{!dosearch}" value="search" reRender="out" status="mystatus"/>
+    
+    <apex:outputPanel id="out">
+    <apex:actionStatus id="mystatus">
+    <apex:facet name="start">
+    <apex:image value="$Resource.loading"/>
+    
+    
+    <!--<outputtext value="data is loading..."/> -->
+    
+    </apex:facet>
+    <apex:facet name="stop">
+    <apex:pageBlock title="Account records">
+  <apex:pageBlockTable value="{!accts}" var="a">
+  <apex:column value="{!a.name}"/>
+  <apex:column value="{!a.rating}"/>
+  <apex:column value="{!a.industry}"/>
+  
+  </apex:pageBlockTable>>
+  
+  </apex:pageBlock>
+  </apex:facet>
+  </apex:actionStatus>
+  </apex:outputPanel>
+  </apex:form>
+  
+</apex:page>

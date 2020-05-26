@@ -1,0 +1,32 @@
+<apex:page controller="Opportunityrecords">
+<apex:form >
+<apex:outputtext >Select stage name:</apex:outputtext>
+<apex:actionRegion >
+<apex:selectlist value="{!searchkey}" size="1">
+<apex:selectOptions value="{!stageoptions}"/>
+<apex:actionSupport event="onchange" action="{!dosearch}" reRender="out" status="mystatus"/>
+</apex:selectlist> <br/> <br/>
+</apex:actionRegion>
+
+<apex:outputPanel id="out">
+<apex:actionStatus id="mystatus">
+<apex:facet name="start">
+<!--<apex:outputText value="Data is loading"></apex:outputText>-->
+<apex:image value="{!$Resource.Loading}" width="100" height="100"/>
+</apex:facet>
+<apex:facet name="stop">
+<apex:pageblock >
+<apex:pageBlockTable value="{!opps}" var="op">
+<apex:column value="{!op.name}"/>
+<apex:column value="{!op.stagename}"/>
+<apex:column value="{!op.amount}"/>
+<apex:column value="{!op.type}"/>
+</apex:pageBlockTable>
+
+</apex:pageblock>
+</apex:facet>
+</apex:actionStatus>
+</apex:outputPanel>
+
+</apex:form>
+</apex:page>

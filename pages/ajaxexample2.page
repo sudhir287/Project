@@ -1,0 +1,40 @@
+<apex:page controller="Accountrecords2">
+  <apex:form >
+  <apex:actionRegion >
+  
+     <apex:outputText value="Enter rating :" /> 
+    <!--<apex:inputtext value="{!searchkey}"/>
+    <apex:commandButton action="{!dosearch}" value="search" reRender="out" status="mystatus"/>-->
+    <apex:selectList value="{!searchkey}" size="1" onchange="showresult();">
+    <apex:selectOption itemvalue="Hot" itemlabel="Hot"/>
+    <apex:selectOption itemvalue="Cold" itemlabel="Cold"/>
+    <apex:selectOption itemvalue="warm" itemlabel="warm"/>
+    </apex:selectList>
+   <apex:actionFunction action="{!dosearch}" name="showresult" reRender="out" status="mystatus"/>
+    </apex:actionRegion>
+    
+    <apex:outputPanel id="out">
+    <apex:actionStatus id="mystatus">
+    <apex:facet name="start">
+    <apex:image value="$Resource.loading"/>
+    
+    
+    <!--<outputtext value="data is loading..."/> -->
+    
+    </apex:facet>
+    <apex:facet name="stop">
+    <apex:pageBlock title="Account records">
+  <apex:pageBlockTable value="{!accts}" var="a">
+  <apex:column value="{!a.name}"/>
+  <apex:column value="{!a.rating}"/>
+  <apex:column value="{!a.industry}"/>
+  
+  </apex:pageBlockTable>>
+  
+  </apex:pageBlock>
+  </apex:facet>
+  </apex:actionStatus>
+  </apex:outputPanel>
+  </apex:form>
+  
+</apex:page>

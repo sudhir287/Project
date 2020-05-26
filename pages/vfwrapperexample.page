@@ -1,0 +1,23 @@
+<apex:page sidebar="false" controller="records">
+ <apex:form >
+ <apex:pageBlock >
+   <apex:pageblockTable value="{!acclist}" var="acc">
+   
+   
+   
+   
+   
+   
+   
+   </apex:pageblockTable>
+ 
+ 
+ 
+ 
+ 
+ </apex:pageBlock>
+ 
+ 
+ </apex:form> 
+  
+</apex:page>

@@ -1,0 +1,24 @@
+<aura:component >
+   
+    <aura:attribute name="selTabid" type="string" default="1"/>
+    <lightning:tabset selectedTabId="{!v.selTabid}">
+       <lightning:tab label="Page 1" id="1">
+           <c:Pagination/>
+        </lightning:tab>
+        <lightning:tab label="Page 2" id="2">
+            <c:Form/>
+        </lightning:tab>
+        
+        <lightning:tab label="Page 3" id="3">
+            <c:Form/>
+        </lightning:tab>
+    </lightning:tabset>
+    <div class="slds-clearfix">
+        <div class="slds-float_left">
+    <lightning:button disabled="{!v.selTabid == '1'}" label="Prev" onclick="{!c.Previous}"/>
+        </div>
+        <div class="slds-float_right">
+    <lightning:button disabled="{!v.selTabid == '3'}" label="Next" onclick="{!c.Next}"/>
+    </div>
+    </div>
+</aura:component>
