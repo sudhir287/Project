@@ -1,0 +1,17 @@
+<aura:component controller="customopp" implements="flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId">
+    <aura:attribute name="oppdetail" type="opportunity[]" />
+    <aura:handler name="init" value="{!this}" action="{!doinit}"/>
+    <div style="margin-left: 100px;margin-top:100px;width:200px">
+
+    <aura:iteration items="{!v.oppdetail}" var="opp" >
+
+    <lightning:card title="Closed won" iconName="standard:account">
+      <p> Name:  {!opp.name}</p> <br/>
+      <p> Stage: {!opp.Stage}</p> <br/>
+      <p> Amount:{!opp.Amount}</p> <br/>
+</lightning:card>
+</aura:iteration>
+</div>
+</aura:component>
+
+	

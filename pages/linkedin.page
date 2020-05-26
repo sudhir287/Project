@@ -1,0 +1,20 @@
+<apex:page controller="LinkedinClass">
+<apex:form >
+    <apex:pagemessages >
+    </apex:pagemessages>
+  <apex:pageBlock >
+  <apex:pageblockButtons location="top">
+  <apex:commandButton value="connect Linkedin" action="{!getauthorizationcode}" rendered="{!iscode}"/>
+  <apex:commandButton value="Complete Authorization" action="{!getaccesstoken}" rendered="{!!iscode}"/>
+  </apex:pageblockButtons>
+     <apex:pageblockButtons location="bottom">
+  <apex:commandButton value="get info" action="{!getinfo}"/>
+         {!basicinfo}
+  
+  </apex:pageblockButtons> 
+      
+  
+  
+  </apex:pageBlock>
+  </apex:form>
+</apex:page>

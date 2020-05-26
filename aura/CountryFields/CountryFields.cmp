@@ -1,0 +1,8 @@
+<aura:component implements="flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId">
+    <lightning:recordViewForm recordId="{!v.recordid}" objectApiName="Account">
+     <lightning:outputField fieldName=" BillingCity"/>
+     <lightning:outputField fieldName=" BillingState"/>
+     <lightning:outputField fieldName=" BillingCountry"/>
+    </lightning:recordViewForm>
+
+</aura:component>	

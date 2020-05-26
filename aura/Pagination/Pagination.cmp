@@ -1,0 +1,56 @@
+<aura:component controller="Paginationclass" >
+    <aura:attribute name="AllAccounts" type="Account[]"/>
+    <aura:attribute name="Currentlist" type="Account[]"/>
+    
+    <aura:handler name="init" value="{!this}" action="{!c.doinit}"/>
+    <aura:handler name="change" value="{!v.Pagenumber}" action="{!c.renderpage}"/>
+    
+    <aura:attribute name="Pagenumber" type="integer" default="1"/>
+    <aura:attribute name="Maxpage" type="integer" default="1"/>
+    
+    <table class="slds-table slds-table--bordered slds-table--cell-buffer">
+    <thead>
+       <tr class="slds-text-title-caps">
+           <th scope="col">
+              <div class="slds-truncate" title="Account Name">
+               Account Name
+               </div>
+           </th>
+            <th scope="col">
+              <div class="slds-truncate" title="Rating">
+               Rating
+               </div>
+           </th>
+            <th scope="col">
+              <div class="slds-truncate" title="Phone">
+               Phone
+               </div>
+           </th>
+        </tr>
+    </thead>
+    <tbody>
+            <aura:iteration items="{!v.Currentlist}" var="record">
+            <tr>
+                <th data-label="Account Name">
+                    <div class="slds-truncate" title="{!record.Name}">
+                    {!record.Name}
+                    </div>
+                </th>
+                <th data-label="Rating">
+                    <div class="slds-truncate" title="{!record.Rating}">
+                    {!record.Rating}
+                    </div>
+                </th>
+                <th data-label="Phone">
+                    <div class="slds-truncate" title="{!record.Phone}">
+                    {!record.Phone}
+                    </div>
+                </th>
+                </tr>
+        
+        </aura:iteration>
+    </tbody>
+        </table>
+      <c:Pagecmp currentPageNumber="{!v.Pagenumber}" maxPageNumber="{!v.Maxpage}"/> 
+    
+</aura:component>

@@ -1,0 +1,64 @@
+<aura:component controller="saveformdata" >
+    <aura:attribute name="Accountdata" type="Account" default="{'sobjecType':'Account','Name':'','Website':'','Phone':'','Rating':''}"/>
+    <aura:attribute name="rating" type="string[]" default="Hot,Cold"/>
+    <aura:attribute name="contactdetaillist" type="list"/>
+    <aura:attribute name="parentid" type="string"/>
+    <aura:attribute name="datasubmitted" type="boolean"/>
+     
+    <div class="slds-m-top--xx-large">
+    <div class="slds-page--heading">
+    <div class="slds-align--absolute-center">
+     <div class="slds-text-heading--large">
+    Registration form
+    
+    </div>
+    </div>
+    </div>
+    </div>
+    <div class="slds-size--3-of-8">
+    
+        <lightning:input type="text" label="Entername" name="Accountname" value="{!v.Accountdata.Name}"/> <br/>
+        <lightning:input type="url" label="Enter website" value="{!v.Accountdata.Website}"/> <br/>
+        <lightning:input type="tel" label="Enter phone" value="{!v.Accountdata.Phone}"/><br/>
+        <lightning:select name="enter rating" label="Enter rating" value="{!v.Accountdata.Rating}"> <br/>
+            <aura:iteration items="{!v.rating}" var="r">
+          <option text="{!r}"></option>
+      </aura:iteration>
+       </lightning:select>
+        <br/> <br/>
+    <lightning:button label="submit" onclick="{!c.savedata}"/> 
+    
+    <lightning:button iconName="utility:add" label="add details" onclick="{!c.adddetails}"/>
+        <hr/>
+    <aura:iteration items="{!v.contactdetaillist}" var="con" indexvar="index">
+        <c:contactdetail contdetaillist="{!v.contactdetaillist}" parentrecordid="{!v.parentid}" indexno="!index"/>
+        <hr/>
+    </aura:iteration>
+    </div>
+    
+    <aura:if isTrue="{!v.datasubmitted}">
+    
+        <div class="demo-only" style="height: 24rem;">
+  <section role="alertdialog" tabindex="-1" aria-labelledby="prompt-heading-id" aria-describedby="prompt-message-wrapper" class="slds-modal slds-fade-in-open slds-modal_prompt" aria-modal="true">
+    <div class="slds-modal__container">
+      <header class="slds-modal__header slds-theme_error slds-theme_alert-texture">
+        <button class="slds-button slds-button_icon slds-modal__close slds-button_icon-inverse" title="Close">
+           <span class="slds-assistive-text">Close</span>
+        </button>
+        <h2 class="slds-text-heading_medium" id="prompt-heading-id">SUCCESS</h2>
+      </header>
+      <div class="slds-modal__content slds-p-around_medium" id="modal-content-id-1">
+        <p>Candidate detail has been saved successfully. Please refresh the page for any new entry or close the tab.</p>
+      </div>
+      </div>
+  </section>
+  <div class="slds-backdrop slds-backdrop_open"></div>
+</div>
+        
+</aura:if>
+    
+    
+    
+    
+    
+</aura:component>
